@@ -23,6 +23,10 @@ namespace PRN_Project.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
+            if(Category.Name == Category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError(String.Empty, "Name can't exactly match with display order");
+            }
             if(ModelState.IsValid)
             {
                 await dbContext.Category.AddAsync(Category);
