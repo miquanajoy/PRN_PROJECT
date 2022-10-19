@@ -23,9 +23,14 @@ namespace PRN_Project.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
-            await dbContext.Category.AddAsync(Category);
-            await dbContext.SaveChangesAsync();
-            return RedirectToPage("Index");
+            if(ModelState.IsValid)
+            {
+                await dbContext.Category.AddAsync(Category);
+                await dbContext.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            return Page();
+            
         }
     }
 }
