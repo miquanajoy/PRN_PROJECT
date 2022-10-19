@@ -5,10 +5,10 @@ using PRN_Project.Model;
 
 namespace PRN_Project.Pages.Categories
 {
+    [BindProperties]
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext dbContext;
-
         public Category Category { get; set; }
 
         public void OnGet()
@@ -21,9 +21,9 @@ namespace PRN_Project.Pages.Categories
             dbContext = db;
         }
 
-        public async Task<IActionResult> OnPost(Category category)
+        public async Task<IActionResult> OnPost()
         {
-            await dbContext.Category.AddAsync(category);
+            await dbContext.Category.AddAsync(Category);
             await dbContext.SaveChangesAsync();
             return RedirectToPage("Index");
         }
