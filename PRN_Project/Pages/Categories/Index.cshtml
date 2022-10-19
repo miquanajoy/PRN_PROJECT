@@ -1,6 +1,13 @@
 ﻿@page
 @model PRN_Project.Pages.Categories.IndexModel
 
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-dismissible alert-success">
+    <strong>@TempData["success"]</strong> 
+</div>
+}
+
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
@@ -9,7 +16,7 @@
 
         <div class="col-6">
             <a asp-page="create" class="btn btn-primary">
-                <i class="bi bi-pencil-square"></i>&nbsp; Create new category</a>
+                <i class="bi bi-plus-circle-fill"></i>&nbsp; Create new category</a>
         </div>
     </div>
 
@@ -25,6 +32,9 @@
                 <th>
                     Display Order
                 </th>
+                <th>
+                    Edit/Delete
+                </th>
             </tr>
         </thead>
 
@@ -33,7 +43,19 @@
             {
                 <tr>
                     <td width="50%">@obj.Name</td>
-                    <td width="40%">@obj.DisplayOrder</td>
+                    <td width="30%">@obj.DisplayOrder</td>
+                    <td width="15%">
+                        <div class="w-75 btn-btn-group" role="group">
+                        <!--Edit button-->
+                        <a asp-page="Edit" asp-route-id="@obj.Id" class="btn btn-warning mx-2">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <!--Delete button-->
+                        <a asp-page="Delete" asp-route-id="@obj.Id" class="btn btn-danger mx-2">
+                            <i class="bi bi-trash3-fill"></i>
+                        </a>
+                        </div>
+                    </td>         
                 </tr>
             }
         </tbody>
