@@ -23,9 +23,18 @@ namespace PRN_Project.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
-            await dbContext.Category.AddAsync(Category);
-            await dbContext.SaveChangesAsync();
-            return RedirectToPage("Index");
+            if(Category.Name == Category.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError(String.Empty, "Name can't exactly match with display order");
+            }
+            if(ModelState.IsValid)
+            {
+                await dbContext.Category.AddAsync(Category);
+                await dbContext.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            return Page();
+            
         }
     }
 }

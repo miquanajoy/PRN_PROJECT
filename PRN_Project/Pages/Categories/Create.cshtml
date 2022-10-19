@@ -7,7 +7,7 @@
             <h2 class="text-primary pl-3">Create category</h2> <hr />
 
         </div>
-
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="mb-3">
             <label asp-for="Category.Name"></label>
             <input asp-for="Category.Name" class="form-control" />
@@ -16,6 +16,7 @@
         <div class="mb-3">
             <label asp-for="Category.DisplayOrder"></label>
             <input asp-for="Category.DisplayOrder" class="form-control" />
+
         </div>
 
         <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
