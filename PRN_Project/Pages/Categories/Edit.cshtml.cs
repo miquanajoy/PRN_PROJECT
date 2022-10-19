@@ -6,17 +6,17 @@ using PRN_Project.Model;
 namespace PRN_Project.Pages.Categories
 {
     [BindProperties]
-    public class CreateModel : PageModel
+    public class EditModel : PageModel
     {
         private readonly ApplicationDbContext dbContext;
         public Category Category { get; set; }
 
-        public void OnGet()
+        public void OnGet(int id)
         {
-
+            Category = dbContext.Category.FirstOrDefault(u=>u.Id==id);
         }
 
-        public CreateModel(ApplicationDbContext db)
+        public EditModel(ApplicationDbContext db)
         {
             dbContext = db;
         }
@@ -29,9 +29,9 @@ namespace PRN_Project.Pages.Categories
             }
             if(ModelState.IsValid)
             {
-                await dbContext.Category.AddAsync(Category);
+                dbContext.Category.Update(Category);
                 await dbContext.SaveChangesAsync();
-                TempData["success"] = "Category create successfully !";
+                TempData["success"] = "Category update successfully !";
                 return RedirectToPage("Index");
             }
             return Page();
