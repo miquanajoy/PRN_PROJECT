@@ -16,6 +16,7 @@ namespace BookStore.DataAccess.Repository
         {
             dbContext = db;
             Category = new CategoryRepository(dbContext);
+            BookType = new BookTypeRepository(dbContext);
         }
 
         public ICategoryRepository Category { get; private set; }
