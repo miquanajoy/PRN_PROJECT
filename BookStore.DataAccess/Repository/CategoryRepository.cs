@@ -18,12 +18,9 @@ namespace BookStore.DataAccess.Repository
         {
             dbContext = db;
         }
-        public void Save()
-        {
-            dbContext.SaveChanges();
-        }
+ 
 
-        public void Update(Category category)
+        public void update(Category category)
         {
             var obj = dbContext.Category.FirstOrDefault(u => u.Id == category.Id);
             obj.Name = category.Name;
