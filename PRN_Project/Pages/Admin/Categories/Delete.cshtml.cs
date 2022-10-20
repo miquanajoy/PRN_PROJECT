@@ -27,7 +27,7 @@ namespace PRN_Project.Pages.Admin.Categories
 
         public async Task<IActionResult> OnPost()
         {
-                var categoryFromDb = _unitOfWork.Category.getFirstOrDefault(u => u.Id == Category.Id);
+            var categoryFromDb = _unitOfWork.Category.getFirstOrDefault(u => u.Id == Category.Id);
             if (categoryFromDb != null)
                 {
                 _unitOfWork.Category.remove(categoryFromDb);

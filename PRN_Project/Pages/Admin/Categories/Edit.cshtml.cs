@@ -32,7 +32,7 @@ namespace PRN_Project.Pages.Admin.Categories
             if(ModelState.IsValid)
             {
                 _unitOfWork.Category.update(Category);
-                 _unitOfWork.save();
+                _unitOfWork.save();
                 TempData["success"] = "Category update successfully !";
                 return RedirectToPage("Index");
             }
