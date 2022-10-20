@@ -1,19 +1,20 @@
+using BookStore.DataAccess.Data;
+using BookStore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PRN_Project.Data;
-using PRN_Project.Model;
 
-namespace PRN_Project.Pages.Categories
+
+namespace PRN_Project.Pages.Admin.BookTypes
 {
     [BindProperties]
     public class DeleteModel : PageModel
     {
         private readonly ApplicationDbContext dbContext;
-        public Category Category { get; set; }
+        public BookType BookType { get; set; }
 
         public void OnGet(int id)
         {
-            Category = dbContext.Category.Find(id);
+            BookType = dbContext.BookType.Find(id);
         }
 
         public DeleteModel(ApplicationDbContext db)
@@ -23,12 +24,12 @@ namespace PRN_Project.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
-                var categoryFromDb = dbContext.Category.Find(Category.Id);
-                if (categoryFromDb != null)
+                var bookTypeFromDb = dbContext.BookType.Find(BookType.Id);
+                if (bookTypeFromDb != null)
                 {
-                    dbContext.Category.Remove(categoryFromDb);
+                    dbContext.BookType.Remove(bookTypeFromDb);
                     await dbContext.SaveChangesAsync();
-                TempData["success"] = "Category delete successfully !";
+                TempData["success"] = "Book type delete successfully !";
                 return RedirectToPage("Index");
                 }
                 return Page();

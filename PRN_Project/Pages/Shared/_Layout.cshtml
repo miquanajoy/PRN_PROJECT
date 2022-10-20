@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - PRN_Project</title>
-    <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.css"/>
+    <link rel="stylesheet" href="https://bootswatch.com/5/journal/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     @*<link rel="stylesheet" href="~/PRN_Project.styles.css" asp-append-version="true" /> -->*@
@@ -26,8 +26,15 @@
                         <li class="nav-item">
                             <a class="nav-link active" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" asp-area="" asp-page="/Categories/Index">Category</a>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" asp-area="" asp-page="/Admin/Categories/Index">Category</a>
+                                <a class="dropdown-item" asp-area="" asp-page="/Admin/BookTypes/Index">Book type</a>
+
+                                <div class="dropdown-divider"></div>
+                            </div>
                         </li>
                     </ul>
                 </div>

@@ -1,5 +1,5 @@
+using BookStore.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
-using PRN_Project.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

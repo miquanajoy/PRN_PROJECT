@@ -1,9 +1,10 @@
+using BookStore.DataAccess.Data;
+using BookStore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PRN_Project.Data;
-using PRN_Project.Model;
 
-namespace PRN_Project.Pages.Categories
+
+namespace PRN_Project.Pages.Admin.Categories
 {
     public class IndexModel : PageModel
     {

@@ -1,24 +1,26 @@
 ﻿@page
-@model PRN_Project.Pages.Categories.DeleteModel
+@model PRN_Project.Pages.Admin.Categories.EditModel
 
 <form method="post">
     <input hidden asp-for="Category.Id"/>
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2 class="text-primary pl-3">Delete category</h2> <hr />
+            <h2 class="text-primary pl-3">Edit category</h2> <hr />
 
         </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="mb-3">
             <label asp-for="Category.Name"></label>
-            <input asp-for="Category.Name" disabled class="form-control" />
+            <input asp-for="Category.Name" class="form-control" />
         </div>
 
         <div class="mb-3">
             <label asp-for="Category.DisplayOrder"></label>
-            <input asp-for="Category.DisplayOrder" disabled class="form-control" />
+            <input asp-for="Category.DisplayOrder" class="form-control" />
+
         </div>
 
-        <button type="submit" class="btn btn-danger" style="width:150px">Delete</button>
+        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
         <a asp-page="Index" class="btn btn-secondary" style="width:150px">
             <i class="bi bi-caret-left-square-fill"> Back to list</i>
             </a>
