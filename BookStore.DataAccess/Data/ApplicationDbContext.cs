@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PRN_Project.Model;
+using BookStore.Models;
 
-namespace PRN_Project.Data
+namespace BookStore.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -10,5 +10,8 @@ namespace PRN_Project.Data
 
         }
         public DbSet<Category> Category { get; set; }
+
+        public DbSet<BookType> BookType { get; set; }
+
     }
 }

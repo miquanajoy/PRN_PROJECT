@@ -1,16 +1,16 @@
 ﻿@page
-@model PRN_Project.Pages.Categories.IndexModel
+@model PRN_Project.Pages.Admin.BookTypes.IndexModel
 
 
 <div class="container p-3">
     <div class="row pt-4">
         <div class="col-6">
-            <h2 class="text-primary">Category List</h2>
+            <h2 class="text-primary">Book Type List</h2>
         </div>
 
         <div class="col-6">
             <a asp-page="create" class="btn btn-primary">
-                <i class="bi bi-plus-circle-fill"></i>&nbsp; Create new category</a>
+                <i class="bi bi-plus-circle-fill"></i>&nbsp; Create new book type</a>
         </div>
     </div>
 
@@ -22,10 +22,7 @@
             <tr>
                 <th>
                     Category Name
-                </th>
-                <th>
-                    Display Order
-                </th>
+                </th>               
                 <th>
                     Edit/Delete
                 </th>
@@ -33,11 +30,10 @@
         </thead>
 
         <tbody>
-            @foreach(var obj in Model.categories)
+            @foreach(var obj in Model.BookTypes)
             {
                 <tr>
                     <td width="50%">@obj.Name</td>
-                    <td width="30%">@obj.DisplayOrder</td>
                     <td width="15%">
                         <div class="w-75 btn-btn-group" role="group">
                         <!--Edit button-->

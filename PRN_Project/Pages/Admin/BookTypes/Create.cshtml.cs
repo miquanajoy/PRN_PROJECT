@@ -1,15 +1,16 @@
+using BookStore.DataAccess.Data;
+using BookStore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PRN_Project.Data;
-using PRN_Project.Model;
 
-namespace PRN_Project.Pages.Categories
+
+namespace PRN_Project.Pages.Admin.BookTypes
 {
     [BindProperties]
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext dbContext;
-        public Category Category { get; set; }
+        public BookType BookType { get; set; }
 
         public void OnGet()
         {
@@ -23,15 +24,12 @@ namespace PRN_Project.Pages.Categories
 
         public async Task<IActionResult> OnPost()
         {
-            if(Category.Name == Category.DisplayOrder.ToString())
-            {
-                ModelState.AddModelError("Category.Name", "Name can't exactly match with display order");
-            }
+           
             if(ModelState.IsValid)
             {
-                await dbContext.Category.AddAsync(Category);
+                await dbContext.BookType.AddAsync(BookType);
                 await dbContext.SaveChangesAsync();
-                TempData["success"] = "Category create successfully !";
+                TempData["success"] = "Book type create successfully !";
                 return RedirectToPage("Index");
             }
             return Page();
