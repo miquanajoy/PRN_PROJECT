@@ -20,6 +20,8 @@ namespace BookStore.DataAccess.Repository
 
         public ICategoryRepository Category { get; private set; }
 
+        public IBookTypeRepository BookType { get; private set; }
+
         public void Dispose()
         {
             dbContext.Dispose();

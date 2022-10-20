@@ -9,6 +9,8 @@ namespace BookStore.DataAccess.Repository.IRepository
     public interface IUnitOfWork: IDisposable
     {
         ICategoryRepository Category { get; }
+
+        IBookTypeRepository BookType { get; }
         void save();
     }
 }
