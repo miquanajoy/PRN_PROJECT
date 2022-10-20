@@ -1,4 +1,5 @@
 using BookStore.DataAccess.Data;
+using BookStore.DataAccess.Repository.IRepository;
 using BookStore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,7 +10,7 @@ namespace PRN_Project.Pages.Admin.BookTypes
     [BindProperties]
     public class CreateModel : PageModel
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly IUnitOfWork _unitOfWork;
         public BookType BookType { get; set; }
 
         public void OnGet()
@@ -17,9 +18,9 @@ namespace PRN_Project.Pages.Admin.BookTypes
 
         }
 
-        public CreateModel(ApplicationDbContext db)
+        public CreateModel(IUnitOfWork unitOfWork)
         {
-            dbContext = db;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<IActionResult> OnPost()
@@ -27,8 +28,8 @@ namespace PRN_Project.Pages.Admin.BookTypes
            
             if(ModelState.IsValid)
             {
-                await dbContext.BookType.AddAsync(BookType);
-                await dbContext.SaveChangesAsync();
+                _unitOfWork.BookType.add(BookType);
+                _unitOfWork.save();
                 TempData["success"] = "Book type create successfully !";
                 return RedirectToPage("Index");
             }

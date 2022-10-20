@@ -1,4 +1,5 @@
 using BookStore.DataAccess.Data;
+using BookStore.DataAccess.Repository.IRepository;
 using BookStore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,17 +10,17 @@ namespace PRN_Project.Pages.Admin.BookTypes
     [BindProperties]
     public class EditModel : PageModel
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly IUnitOfWork _unitOfWork;
         public BookType BookType { get; set; }
 
         public void OnGet(int id)
         {
-            BookType = dbContext.BookType.FirstOrDefault(u=>u.Id==id);
+            BookType = _unitOfWork.BookType.getFirstOrDefault(u => u.Id == id);
         }
 
-        public EditModel(ApplicationDbContext db)
+        public EditModel(IUnitOfWork unitOfWork)
         {
-            dbContext = db;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<IActionResult> OnPost()
@@ -27,8 +28,8 @@ namespace PRN_Project.Pages.Admin.BookTypes
             
             if(ModelState.IsValid)
             {
-                dbContext.BookType.Update(BookType);
-                await dbContext.SaveChangesAsync();
+                _unitOfWork.BookType.update(BookType);
+                _unitOfWork.save();
                 TempData["success"] = "Book type update successfully !";
                 return RedirectToPage("Index");
             }

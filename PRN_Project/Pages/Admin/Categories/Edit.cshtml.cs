@@ -1,4 +1,5 @@
 using BookStore.DataAccess.Data;
+using BookStore.DataAccess.Repository.IRepository;
 using BookStore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,17 +10,17 @@ namespace PRN_Project.Pages.Admin.Categories
     [BindProperties]
     public class EditModel : PageModel
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly IUnitOfWork _unitOfWork;
         public Category Category { get; set; }
+
+        public EditModel(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
 
         public void OnGet(int id)
         {
-            Category = dbContext.Category.FirstOrDefault(u=>u.Id==id);
-        }
-
-        public EditModel(ApplicationDbContext db)
-        {
-            dbContext = db;
+            Category = _unitOfWork.Category.getFirstOrDefault(u => u.Id == id);
         }
 
         public async Task<IActionResult> OnPost()
@@ -30,8 +31,8 @@ namespace PRN_Project.Pages.Admin.Categories
             }
             if(ModelState.IsValid)
             {
-                dbContext.Category.Update(Category);
-                await dbContext.SaveChangesAsync();
+                _unitOfWork.Category.update(Category);
+                _unitOfWork.save();
                 TempData["success"] = "Category update successfully !";
                 return RedirectToPage("Index");
             }
