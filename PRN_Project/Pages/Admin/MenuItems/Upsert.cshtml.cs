@@ -16,8 +16,13 @@ namespace PRN_Project.Pages.Admin.MenuItems
         public IEnumerable<SelectListItem> CategoryList { get; set; }
         public IEnumerable<SelectListItem> BookTypeList { get; set; }
 
-        public void OnGet()
+        public void OnGet(int? id)
         {
+            if (id != null)
+            {
+                //edit
+                MenuItem = _unitOfWork.MenuItem.getFirstOrDefault(u => u.Id == id);
+            }
             CategoryList = _unitOfWork.Category.getAll().Select(i => new SelectListItem()
             {
                 Text = i.Name,
