@@ -11,6 +11,7 @@ namespace BookStore.DataAccess.Repository.IRepository
         ICategoryRepository Category { get; }
 
         IBookTypeRepository BookType { get; }
+        IMenuItemRepository MenuItem { get; }
         void save();
     }
 }
