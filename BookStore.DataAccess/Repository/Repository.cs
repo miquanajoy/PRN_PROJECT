@@ -20,6 +20,8 @@ namespace BookStore.DataAccess.Repository
         public Repository(ApplicationDbContext db)
         {
             dbContext = db;
+            //Booktype, category
+            //dbContext.MenuItem.Include(u => u.BookType).Include(u => u.Category);
             this.dbSet = db.Set<T>();
         }
         public void add(T entity)
@@ -27,9 +29,17 @@ namespace BookStore.DataAccess.Repository
             dbSet.Add(entity);
         }
 
-        public IEnumerable<T> getAll()
+        public IEnumerable<T> getAll(string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
+            if(includeProperties != null)
+            {
+                foreach(var includeProperty in includeProperties.Split(
+                    new char[] { ','}, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
             return query.ToList();
         }
 

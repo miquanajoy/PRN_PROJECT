@@ -12,7 +12,7 @@ namespace BookStore.DataAccess.Repository.IRepository
         void add(T entity); 
         void remove(T entity);
         void removeRange(IEnumerable<T> entity);
-        IEnumerable<T> getAll();
+        IEnumerable<T> getAll(string? includeProperties=null);
         T getFirstOrDefault(Expression<Func<T, bool>>? filter=null);
     }
 }
