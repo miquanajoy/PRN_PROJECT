@@ -1,1 +1,0 @@
-                    b.HasIndex("bookTypeId");
