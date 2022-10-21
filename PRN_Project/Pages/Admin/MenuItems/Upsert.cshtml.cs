@@ -70,7 +70,35 @@ namespace PRN_Project.Pages.Admin.MenuItems
             } 
             else
             {
-                //edit
+                var obj = _unitOfWork.MenuItem.getFirstOrDefault(u => u.Id == MenuItem.Id);
+                if (files.Count > 0)
+                {
+                    string fileName_new = Guid.NewGuid().ToString();
+                    var uploads = Path.Combine(webRootPath, @"image\menuItems");
+                    var extension = Path.GetExtension(files[0].FileName);
+
+                    //delete old img
+                    var oldImagePath = Path.Combine(webRootPath, obj.Image.TrimStart('\\'));
+                    if (System.IO.File.Exists(oldImagePath))
+                    {
+                        System.IO.File.Delete(oldImagePath);
+                    }
+                    //new upload
+                    using (var fileStream = new FileStream(Path.Combine(uploads, fileName_new + extension),
+                                FileMode.Create))
+                    {
+                        files[0].CopyTo(fileStream);
+                    }
+
+                    MenuItem.Image = @"\image\menuItems\" + fileName_new + extension;
+                }
+                else
+                {
+                    MenuItem.Image = obj.Image;
+                }
+
+                _unitOfWork.MenuItem.update(MenuItem);
+                _unitOfWork.save();
             }
             return RedirectToPage("./Index");
 
