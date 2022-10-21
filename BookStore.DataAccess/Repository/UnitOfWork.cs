@@ -17,11 +17,13 @@ namespace BookStore.DataAccess.Repository
             dbContext = db;
             Category = new CategoryRepository(dbContext);
             BookType = new BookTypeRepository(dbContext);
+            MenuItem = new MenuItemRepository(dbContext);
         }
 
         public ICategoryRepository Category { get; private set; }
 
         public IBookTypeRepository BookType { get; private set; }
+        public IMenuItemRepository MenuItem { get; private set; }
 
         public void Dispose()
         {
