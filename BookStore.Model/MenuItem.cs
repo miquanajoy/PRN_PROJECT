@@ -11,20 +11,20 @@ namespace BookStore.Models
     public class MenuItem
     {
         [Key]
-        public int id { get; set; }
+        public int Id { get; set; }
         [Required]
-        public string name { get; set; }
-        public string description { get; set; }
-        [Range(1, 1000,ErrorMessage = "Price should be between $1 - $1000")]
-        public string image { get; set; }
-        public double price { get; set; }
-        public int bookTypeId { get; set; }
-        [ForeignKey("bookTypeId")]
-        public BookType bookType { get; set; }
-        public int categoryId { get; set; }
-        public Category category { get; set; }
-
-
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string Image { get; set; }
+        [Range(1, 1000, ErrorMessage = "Price should be between $1 - $1000")]
+        public double Price { get; set; }
+        [Display(Name="Book type")]
+        public int BookTypeId { get; set; }
+        [ForeignKey("BookTypeId")]
+        public BookType BookType { get; set; }
+        [Display(Name="Category")]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
     }
 }

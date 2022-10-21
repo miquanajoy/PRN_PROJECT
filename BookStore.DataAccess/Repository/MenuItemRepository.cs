@@ -19,16 +19,16 @@ namespace BookStore.DataAccess.Repository
 
         public void update(MenuItem menuItem)
         {
-            var obj = dbContext.MenuItem.FirstOrDefault(u => u.id == menuItem.id);
-            obj.name = menuItem.name;
-            obj.description = menuItem.description;
-            obj.price = menuItem.price;
-            obj.categoryId = menuItem.categoryId;
-            obj.bookTypeId = menuItem.bookTypeId;
+            var obj = dbContext.MenuItem.FirstOrDefault(u => u.Id == menuItem.Id);
+            obj.Name = menuItem.Name;
+            obj.Description = menuItem.Description;
+            obj.Price = menuItem.Price;
+            obj.CategoryId = menuItem.CategoryId;
+            obj.BookTypeId = menuItem.BookTypeId;
 
-            if(obj.image != null)
+            if (obj.Image != null)
             {
-                obj.image = menuItem.image;
+                obj.Image = menuItem.Image;
             }
 
         }
