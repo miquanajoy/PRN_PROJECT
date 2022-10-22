@@ -19,7 +19,7 @@ namespace PRN_Project.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var categoryList = _unitOfWork.MenuItem.getAll();
+            var categoryList = _unitOfWork.Category.getAll();
             return Json(new { data = categoryList });
         }
 
