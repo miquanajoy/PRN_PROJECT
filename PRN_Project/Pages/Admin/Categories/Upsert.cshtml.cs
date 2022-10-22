@@ -44,6 +44,7 @@ namespace PRN_Project.Pages.Admin.Categories
             } 
             else //edit
             {
+                var obj = _unitOfWork.Category.getFirstOrDefault(u => u.Id == Category.Id);
                 if (Category.Name == Category.DisplayOrder.ToString())
                 {
                     ModelState.AddModelError("Category.Name", "Name can't exactly match with display order");
