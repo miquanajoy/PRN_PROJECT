@@ -15,7 +15,7 @@ $(document).ready(function () {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="w-75 bth-group">
-                            <a href="/Admin/Category/upsert?id=${data}"
+                            <a href="/Admin/Categories/upsert?id=${data}"
                                 class="btn btn-success text-white mx-2">
                                 <i class="bi bi-pencil-square"></i></a>
                             <a onClick="Delete('/api/Category/' + ${data})"

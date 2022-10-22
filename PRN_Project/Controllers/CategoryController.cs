@@ -8,12 +8,11 @@ namespace PRN_Project.Controllers
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CategoryController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
+        public CategoryController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _webHostEnvironment = webHostEnvironment;
+            
         }
 
         [HttpGet]
