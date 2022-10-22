@@ -1,25 +1,22 @@
 ﻿var dataTable;
 
 $(document).ready(function () {
-   dataTable = $('#DT_load').DataTable({
+    dataTable = $('#DT_load').DataTable({
         "ajax": {
-            "url": "/api/MenuItem",
+            "url": "/api/BookType",
             "type": "GET",
             "datatype": "json"
         },
         "columns": [
             { "data": "name", "width": "25%" },
-            { "data": "price", "width": "10%" },
-            { "data": "category.name", "width": "10%" },
-            { "data": "bookType.name", "width": "10%" },
             {
                 "data": "id",
                 "render": function (data) {
                     return `<div class="w-75 bth-group">
-                            <a href="/Admin/MenuItems/upsert?id=${data}"
+                            <a href="/Admin/BookTypes/upsert?id=${data}"
                                 class="btn btn-success text-white mx-2">
                                 <i class="bi bi-pencil-square"></i></a>
-                            <a onClick="Delete('/api/MenuItem/' + ${data})"
+                            <a onClick="Delete('/api/BookType/' + ${data})"
                                 class="btn btn-danger text-white" mx-2>
                                 <i class="bi bi-trash-fill"></i></a>
                             </div>`
@@ -27,7 +24,7 @@ $(document).ready(function () {
                 "width": "10%"
             }
         ],
-        "width" : "100%"
+        "width": "100%"
     });
 });
 
@@ -62,3 +59,5 @@ function Delete(url) {
     })
 
 }
+
+
