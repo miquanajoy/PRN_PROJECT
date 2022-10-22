@@ -8,33 +8,52 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace PRN_Project.Pages.Admin.BookTypes
 {
     [BindProperties]
-    public class EditModel : PageModel
+    public class UpsertModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;
+
         public BookType BookType { get; set; }
 
-        public void OnGet(int id)
-        {
-            BookType = _unitOfWork.BookType.getFirstOrDefault(u => u.Id == id);
-        }
-
-        public EditModel(IUnitOfWork unitOfWork)
+        public UpsertModel(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+            BookType = new();
+        }
+
+        //edit
+        public void OnGet(int? id)
+        {
+            if (id != null)
+            {
+                BookType = _unitOfWork.BookType.getFirstOrDefault(u => u.Id == id);
+            }
         }
 
         public async Task<IActionResult> OnPost()
         {
-            
-            if(ModelState.IsValid)
+            //create
+            if (BookType.Id == 0)
             {
-                _unitOfWork.BookType.update(BookType);
-                _unitOfWork.save();
-                TempData["success"] = "Book type update successfully !";
-                return RedirectToPage("Index");
+                if (ModelState.IsValid)
+                {
+                    _unitOfWork.BookType.add(BookType);
+                    _unitOfWork.save();
+                    TempData["success"] = "Book type create successfully !";
+                    return RedirectToPage("Index");
+                }
+            }
+            else //edit
+            {
+                var obj = _unitOfWork.BookType.getFirstOrDefault(u => u.Id == BookType.Id);               
+                if (ModelState.IsValid)
+                {
+                    _unitOfWork.BookType.update(BookType);
+                    _unitOfWork.save();
+                    TempData["success"] = "Category update successfully !";
+                    return RedirectToPage("Index");
+                }
             }
             return Page();
-            
         }
     }
 }
