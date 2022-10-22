@@ -188,6 +188,9 @@
             "projectReferences": {
               "D:\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
                 "projectPath": "D:\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
+              },
+              "D:\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj": {
+                "projectPath": "D:\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj"
               }
             }
           }
