@@ -21,7 +21,7 @@ namespace PRN_Project.Pages.Customer.Home
         public void OnGet()
         {
             MenuItemList = _unitOfWork.MenuItem.getAll(includeProperties: "BookType,Category");
-            CategoryList = _unitOfWork.Category.getAll();
+            CategoryList = _unitOfWork.Category.getAll(orderBy: u=>u.OrderBy(c=>c.DisplayOrder));
         }
     }
 }
