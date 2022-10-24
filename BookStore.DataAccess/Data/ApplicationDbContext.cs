@@ -15,6 +15,7 @@ namespace BookStore.DataAccess.Data
         public DbSet<BookType> BookType { get; set; }
 
         public DbSet<MenuItem> MenuItem { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
     }
 }
