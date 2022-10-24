@@ -3814,6 +3814,21 @@
         "runtime": {
           "bin/placeholder/BookStore.Models.dll": {}
         }
+      },
+      "BookStore.Utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.UI": "6.0.10",
+          "Microsoft.EntityFrameworkCore": "6.0.10",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10"
+        },
+        "compile": {
+          "bin/placeholder/BookStore.Utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookStore.Utility.dll": {}
+        }
       }
     }
   },
@@ -10704,12 +10719,18 @@
       "type": "project",
       "path": "../BookStore.Model/BookStore.Models.csproj",
       "msbuildProject": "../BookStore.Model/BookStore.Models.csproj"
+    },
+    "BookStore.Utility/1.0.0": {
+      "type": "project",
+      "path": "../BookStore.Utility/BookStore.Utility.csproj",
+      "msbuildProject": "../BookStore.Utility/BookStore.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "BookStore.DataAccess >= 1.0.0",
       "BookStore.Models >= 1.0.0",
+      "BookStore.Utility >= 1.0.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.10",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.10",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.10",
@@ -10757,6 +10778,9 @@
             },
             "D:\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj": {
               "projectPath": "D:\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj"
+            },
+            "D:\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj": {
+              "projectPath": "D:\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj"
             }
           }
         }
