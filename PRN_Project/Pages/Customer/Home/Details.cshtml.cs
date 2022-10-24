@@ -12,7 +12,6 @@ namespace PRN_Project.Pages.Customer.Home
 
         public MenuItem MenuItem { get; set; }
 
-        [Range(1, 100, ErrorMessage = "You can only buy 1-100")]
         public int count { get; set; }
 
         public DetailsModel(IUnitOfWork unitOfWork)
