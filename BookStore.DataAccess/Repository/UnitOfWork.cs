@@ -18,12 +18,14 @@ namespace BookStore.DataAccess.Repository
             Category = new CategoryRepository(dbContext);
             BookType = new BookTypeRepository(dbContext);
             MenuItem = new MenuItemRepository(dbContext);
+            ShoppingCart = new ShoppingCartRepository(dbContext);
         }
 
         public ICategoryRepository Category { get; private set; }
 
         public IBookTypeRepository BookType { get; private set; }
         public IMenuItemRepository MenuItem { get; private set; }
+        public IShoppingCartRepository ShoppingCart { get; private set; }
 
         public void Dispose()
         {
