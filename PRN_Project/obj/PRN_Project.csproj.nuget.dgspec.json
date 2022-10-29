@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\PRN_Project\\PRN_Project.csproj": {}
+    "C:\\Users\\steve\\PRN_PROJECT\\PRN_Project\\PRN_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
+    "C:\\Users\\steve\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
         "projectName": "BookStore.DataAccess",
-        "projectPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
-        "packagesPath": "C:\\Users\\Admins\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.DataAccess\\obj\\",
+        "projectPath": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admins\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj": {
-                "projectPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj"
+              "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj": {
+                "projectPath": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj"
               }
             }
           }
@@ -69,7 +73,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -78,21 +83,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj": {
+    "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj",
+        "projectUniqueName": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj",
         "projectName": "BookStore.Models",
-        "projectPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj",
-        "packagesPath": "C:\\Users\\Admins\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Model\\obj\\",
+        "projectPath": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj",
+        "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Model\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admins\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -147,7 +156,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -156,21 +166,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj": {
+    "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj",
+        "projectUniqueName": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj",
         "projectName": "BookStore.Utility",
-        "projectPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj",
-        "packagesPath": "C:\\Users\\Admins\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Utility\\obj\\",
+        "projectPath": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj",
+        "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Utility\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admins\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -221,7 +235,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -230,21 +245,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\PRN_Project\\PRN_Project.csproj": {
+    "C:\\Users\\steve\\PRN_PROJECT\\PRN_Project\\PRN_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\PRN_Project\\PRN_Project.csproj",
+        "projectUniqueName": "C:\\Users\\steve\\PRN_PROJECT\\PRN_Project\\PRN_Project.csproj",
         "projectName": "PRN_Project",
-        "projectPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\PRN_Project\\PRN_Project.csproj",
-        "packagesPath": "C:\\Users\\Admins\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\PRN_Project\\obj\\",
+        "projectPath": "C:\\Users\\steve\\PRN_PROJECT\\PRN_Project\\PRN_Project.csproj",
+        "packagesPath": "C:\\Users\\steve\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\steve\\PRN_PROJECT\\PRN_Project\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Admins\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\steve\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -258,14 +277,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
+              "C:\\Users\\steve\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
               },
-              "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj": {
-                "projectPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj"
+              "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj": {
+                "projectPath": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Model\\BookStore.Models.csproj"
               },
-              "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj": {
-                "projectPath": "C:\\Users\\Admins\\OneDrive\\Desktop\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj"
+              "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj": {
+                "projectPath": "C:\\Users\\steve\\PRN_PROJECT\\BookStore.Utility\\BookStore.Utility.csproj"
               }
             }
           }
@@ -321,7 +340,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -333,7 +353,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

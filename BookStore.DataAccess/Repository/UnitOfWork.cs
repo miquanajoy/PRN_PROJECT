@@ -21,6 +21,7 @@ namespace BookStore.DataAccess.Repository
             ShoppingCart = new ShoppingCartRepository(dbContext);
             OrderHeader = new OrderHeaderRepository(dbContext);
             OrderDetails = new OrderDetailsRepository(dbContext);
+            ApplicationUser = new ApplicationUserRepository(dbContext);
         }
 
         public ICategoryRepository Category { get; private set; }
@@ -32,6 +33,8 @@ namespace BookStore.DataAccess.Repository
         public IOrderDetailsRepository OrderDetails { get; private set; }
 
         public IOrderHeaderRepository OrderHeader { get; private set; }
+        public IApplicationUserRepository ApplicationUser { get; private set; }
+
 
         public void Dispose()
         {
