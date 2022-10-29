@@ -38,10 +38,10 @@ namespace BookStore.Models
         public string? Comments { get; set; }
 
         public string? TransactionId { get; set; }
-
+        [Required]
         [Display(Name = "Pick up name")]
         public string PickUpName { get; set; }
-
+        [Required]
         [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }
 
