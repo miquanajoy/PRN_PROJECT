@@ -9,20 +9,21 @@ using System.Threading.Tasks;
 
 namespace BookStore.Models
 {
-    public class ShoppingCart
+    public class OrderDetails
     {
         public int Id { get; set; }
-        [Range(1, 100, ErrorMessage = "You can only buy 1-100")]
-        public int Count { get; set; }
+        [Required]
+        public int OrderId { get; set; }   
+        [ForeignKey("OrderId")]
+        public OrderHeader OrderHeader { get; set; }
+        [Required]
         public int MenuItemId { get; set; }
         [ForeignKey("MenuItemId")]
-        [ValidateNever]
-        public MenuItem MenuItem { get; set; }
-
-        public string ApplicationUserId { get; set; }
-        [ForeignKey("ApplicationUserId")]
-        [ValidateNever]
-        public ApplicationUser ApplicationUser { get; set; }
+        public virtual MenuItem MenuItem { get; set; }
+        public int Count { get; set; }
+        [Required]
+        public double Price { get; set; }
+        public string Name { get; set; }
 
     }
 }
