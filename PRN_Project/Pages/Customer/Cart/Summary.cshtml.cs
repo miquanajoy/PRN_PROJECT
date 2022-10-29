@@ -80,30 +80,16 @@ namespace PRN_Project.Pages.Customer.Cart
                     };
                     _unitOfWork.OrderDetails.add(orderDetails);
                 }
-                int quantity = ShoppingCartList.ToList().Count;
-                _unitOfWork.ShoppingCart.removeRange(ShoppingCartList);
+                
+                //_unitOfWork.ShoppingCart.removeRange(ShoppingCartList);
                 _unitOfWork.save();
 
 
-                var domain = "http://localhost:4242";
+                var domain = "https://localhost:7293/";
                 var options = new SessionCreateOptions
                 {
-                    LineItems = new List<SessionLineItemOptions>
-                {
-                  new SessionLineItemOptions
-                  {
-                    PriceData = new SessionLineItemPriceDataOptions
-                    {
-                        UnitAmount = (long)OrderHeader.OrderTotal*100,
-                        Currency="usd",
-                        ProductData = new SessionLineItemPriceDataProductDataOptions
-                        {
-                            Name = "BookStore"
-                        },
-                    },
-                    Quantity = quantity
-                  },
-                },
+                    LineItems = new List<SessionLineItemOptions>()
+                ,
                     PaymentMethodTypes = new List<string>
                 {
                     "card",
@@ -112,10 +98,34 @@ namespace PRN_Project.Pages.Customer.Cart
                     SuccessUrl = domain + $"customer/cart/OrderConfimation?id={OrderHeader.Id}",
                     CancelUrl = domain + "customer/cart/index",
                 };
+
+                //add line item 
+                foreach(var item in ShoppingCartList)
+                {
+                    var sessionLineItem = new SessionLineItemOptions
+                    {
+                        PriceData = new SessionLineItemPriceDataOptions
+                        {
+                            UnitAmount = (long)(item.MenuItem.Price * 100),
+                            Currency = "usd",
+                            ProductData = new SessionLineItemPriceDataProductDataOptions
+                            {
+                                Name = item.MenuItem.Name
+                            },
+                        },
+                        Quantity = item.Count
+                    };
+                    options.LineItems.Add(sessionLineItem);
+                }
+                
                 var service = new SessionService();
                 Session session = service.Create(options);
 
                 Response.Headers.Add("Location", session.Url);
+
+                OrderHeader.SessionId = session.Id;
+                OrderHeader.PaymentIntentId = session.PaymentIntentId;
+                _unitOfWork.save();
                 return new StatusCodeResult(303);
             }
 

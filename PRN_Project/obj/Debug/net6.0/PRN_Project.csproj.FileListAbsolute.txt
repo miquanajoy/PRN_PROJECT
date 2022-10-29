@@ -1698,3 +1698,4 @@ C:\Users\steve\PRN_PROJECT\PRN_Project\obj\Debug\net6.0\refint\PRN_Project.dll
 C:\Users\steve\PRN_PROJECT\PRN_Project\obj\Debug\net6.0\PRN_Project.pdb
 C:\Users\steve\PRN_PROJECT\PRN_Project\obj\Debug\net6.0\PRN_Project.genruntimeconfig.cache
 C:\Users\steve\PRN_PROJECT\PRN_Project\obj\Debug\net6.0\ref\PRN_Project.dll
+C:\Users\steve\PRN_PROJECT\PRN_Project\bin\Debug\net6.0\Stripe.net.dll
