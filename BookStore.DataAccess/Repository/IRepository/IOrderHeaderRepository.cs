@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace BookStore.DataAccess.Repository.IRepository
 {
-    public interface IShoppingCartRepository : IRepository<ShoppingCart>
+    public interface IOrderHeaderRepository : IRepository<OrderHeader>
     {
-        int incrementCount(ShoppingCart shoppingCart, int count);
-
-        int decrementCount(ShoppingCart shoppingCart, int count);
+        void update(OrderHeader orderHeader);
 
     }
 }

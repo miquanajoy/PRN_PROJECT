@@ -21,7 +21,7 @@ namespace BookStore.DataAccess.Repository
         {
             dbContext = db;
             //Booktype, category
-            //dbContext.MenuItem.Include(u => u.BookType).Include(u => u.Category);
+            //dbContext.ShoppingCart.Include(u => u.MenuItem).ThenInclude(u => u.Category);
             //dbContext.MenuItem.OrderBy(u => u.Name);
             this.dbSet = db.Set<T>();
         }
