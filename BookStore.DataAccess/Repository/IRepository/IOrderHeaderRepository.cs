@@ -11,5 +11,7 @@ namespace BookStore.DataAccess.Repository.IRepository
     {
         void update(OrderHeader orderHeader);
 
+        void UpdateStatus(int id, string status);
+
     }
 }
