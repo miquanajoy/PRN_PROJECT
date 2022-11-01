@@ -24,7 +24,7 @@
                         Name
                     </div>
                     <div class="col-md-9 col-12">
-                        <input asp-for="OrderDetailsVM.OrderHeader.PickupName" disabled class="form-control" />
+                        <input asp-for="OrderDetailsVM.OrderHeader.PickUpName" disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row py-1">
@@ -56,7 +56,7 @@
                         Order Pickup Date Time
                     </div>
                     <div class="col-md-9 col-12">
-                        <input value="@Model.OrderDetailsVM.OrderHeader.PickupDate.ToShortDateString() @Model.OrderDetailsVM.OrderHeader.PickupDate.ToShortTimeString()" disabled class="form-control" />
+                        <input value="@Model.OrderDetailsVM.OrderHeader.PickUpTime.ToShortDateString() @Model.OrderDetailsVM.OrderHeader.PickUpDate.ToShortTimeString()" disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row py-1">
@@ -72,20 +72,21 @@
             <div class="col-lg-4 col-12">
                 <h4 class="d-flex justify-content-between align-content-center mb-3">
                     <span class="text-muted">Order Id: </span>
-                    <span class="badge badge-secondary badge-pill">XXX</span>
+                    <span class="badge badge-secondary badge-pill">@Model.OrderDetailsVM.OrderHeader.Id</span>
                 </h4>
                 <ul class="list-group mb-3">
-                    <li class="list-group-item d-flex justify-content-between">
-                        <div>
-                            <h6 class="my-0">XXNAMEXX</h6>
-                            <small class="text-muted">Quantity: XXCountXX</small>
-                        </div>
-                        <span class="text-muted">$$$</span>
-                    </li>
-
+                    @foreach(var detail in Model.OrderDetailsVM.OrderDetails ) {
+                        <li class="list-group-item d-flex justify-content-between">
+                            <div>
+                                <h6 class="my-0">@detail.Name</h6>
+                                <small class="text-muted">Quantity: @detail.Count</small>
+                            </div>
+                            <span class="text-muted">@(detail.Price*detail.Count)</span>
+                        </li>
+                    }
                     <li class="list-group-item d-flex justify-content-between bg-light">
                         <span class="text-info">Total (USD)</span>
-                        <strong class="text-info">$$$$$</strong>
+                        <strong class="text-info">@Model.OrderDetailsVM.OrderHeader.OrderTotal</strong>
                     </li>
                 </ul>
 
