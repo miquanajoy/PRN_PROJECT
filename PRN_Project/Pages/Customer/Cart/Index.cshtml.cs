@@ -1,5 +1,6 @@
 using BookStore.DataAccess.Repository.IRepository;
 using BookStore.Models;
+using BookStore.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -50,8 +51,11 @@ namespace PRN_Project.Pages.Customer.Cart
             var cart = _unitOfWork.ShoppingCart.getFirstOrDefault(u => u.Id == cartId);
             if (cart.Count == 1)
             {
+                var count = _unitOfWork.ShoppingCart.getAll(x => x.ApplicationUserId == cart.ApplicationUserId).ToList().Count - 1;
+
                 _unitOfWork.ShoppingCart.remove(cart);
                 _unitOfWork.save();
+                HttpContext.Session.SetInt32(SD.SessionCart, count);
             }
             else
             {
@@ -65,8 +69,12 @@ namespace PRN_Project.Pages.Customer.Cart
         public IActionResult OnPostRemove(int cartId)
         {
             var cart = _unitOfWork.ShoppingCart.getFirstOrDefault(u => u.Id == cartId);
+
+            var  count = _unitOfWork.ShoppingCart.getAll(x => x.ApplicationUserId == cart.ApplicationUserId).ToList().Count -1 ;
+
             _unitOfWork.ShoppingCart.remove(cart);
             _unitOfWork.save();
+            HttpContext.Session.SetInt32(SD.SessionCart, count);
             return RedirectToPage("/Customer/Cart/Index");
         }
     }

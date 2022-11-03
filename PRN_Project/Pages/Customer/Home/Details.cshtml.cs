@@ -1,6 +1,8 @@
 using BookStore.DataAccess.Repository.IRepository;
 using BookStore.Models;
+using BookStore.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
@@ -47,6 +49,8 @@ namespace PRN_Project.Pages.Customer.Home
                 {
                     _unitOfWork.ShoppingCart.add(ShoppingCart);
                     _unitOfWork.save();
+                    HttpContext.Session.SetInt32(SD.SessionCart, 
+                        _unitOfWork.ShoppingCart.getAll(x => x.ApplicationUserId == ShoppingCart.ApplicationUserId).ToList().Count);
                 }
                 else
                 {
