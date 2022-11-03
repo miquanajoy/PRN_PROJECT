@@ -24,10 +24,10 @@ namespace BookStore.DataAccess.Repository
             dbContext.OrderHeader.Update(orderHeader);
         }
 
-        public void updateStatus(int id, string status)
+        public void UpdateStatus(int id, string status)
         {
             var orderFromDb = dbContext.OrderHeader.FirstOrDefault(u => u.Id == id);
-            if(orderFromDb != null)
+            if (orderFromDb != null)
             {
                 orderFromDb.Status = status;
             }

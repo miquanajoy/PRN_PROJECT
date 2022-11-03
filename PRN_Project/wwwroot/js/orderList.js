@@ -1,9 +1,26 @@
 ﻿var dataTable;
 
 $(document).ready(function () {
-   dataTable = $('#DT_load').DataTable({
+    var url = window.location.search;
+    if (url.includes("cancelled")) {
+        loadlist("cancelled");
+    } else {
+        if (url.includes("completed")) {
+            loadlist("completed");
+        } else {
+            if (url.includes("ready")) {
+                loadlist("ready");
+            } else {
+                loadlist("inProgress");
+            }
+        }
+    }
+});
+
+function loadlist(param) {
+    dataTable = $('#DT_load').DataTable({
         "ajax": {
-            "url": "/api/order",
+            "url": "/api/order?status=" + param,
             "type": "GET",
             "datatype": "json"
         },
@@ -26,38 +43,6 @@ $(document).ready(function () {
                 "width": "10%"
             }
         ],
-        "width" : "100%"
+        "width": "100%"
     });
-});
-
-function Delete(url) {
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                url: url,
-                type: 'DELETE',
-                success: function (data) {
-                    if (data.success) {
-                        dataTable.ajax.reload();
-                        //successNoti
-                        toastr.success(data.message);
-                    }
-                    else {
-                        //failNoti
-                        toastr.error(data.message);
-
-                    }
-                }
-            })
-        }
-    })
-
 }

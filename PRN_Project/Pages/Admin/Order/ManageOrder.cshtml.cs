@@ -2,11 +2,13 @@ using BookStore.DataAccess.Repository.IRepository;
 using BookStore.Models;
 using BookStore.Models.ViewModel;
 using BookStore.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace PRN_Project.Pages.Admin.Order
 {
+    [Authorize(Roles = $"{SD.ManagerRole},{SD.StaffRole}")]
     public class ManageOrderModel : PageModel
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -35,6 +37,27 @@ namespace PRN_Project.Pages.Admin.Order
                 OrderDetailsVM.Add(individual);
             }
             
+        }
+
+        public IActionResult onPostOrderInProcess(int orderId)
+        {
+            _unitOfWork.OrderHeader.UpdateStatus(orderId, SD.StatusInProcess);
+            _unitOfWork.save();
+            return RedirectToPage("ManageOrder");
+        }
+
+        public IActionResult onPostOrderReady(int orderId)
+        {
+            _unitOfWork.OrderHeader.UpdateStatus(orderId, SD.StatusReady);
+            _unitOfWork.save();
+            return RedirectToPage("ManageOrder");
+        }
+
+        public IActionResult onPostOrderCancel(int orderId)
+        {
+            _unitOfWork.OrderHeader.UpdateStatus(orderId, SD.StatusCancelled);
+            _unitOfWork.save();
+            return RedirectToPage("ManageOrder");
         }
     }
 }
