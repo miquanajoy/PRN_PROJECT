@@ -85,7 +85,7 @@ namespace PRN_Project.Pages.Customer.Cart
                 _unitOfWork.save();
 
 
-                var domain = "https://localhost:7293/";
+                var domain = "https://localhost:7293";
                 var options = new SessionCreateOptions
                 {
                     LineItems = new List<SessionLineItemOptions>()
@@ -95,8 +95,8 @@ namespace PRN_Project.Pages.Customer.Cart
                     "card",
                 },
                     Mode = "payment",
-                    SuccessUrl = domain + $"customer/cart/OrderConfimation?id={OrderHeader.Id}",
-                    CancelUrl = domain + "customer/cart/index",
+                    SuccessUrl = domain + $"/Customer/Cart/OrderConfirmation?id={OrderHeader.Id}",
+                    CancelUrl = domain + "/Customer/Cart/index",
                 };
 
                 //add line item 
