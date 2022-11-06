@@ -26,13 +26,15 @@ namespace PRN_Project.ViewComponents
                 if(HttpContext.Session.GetInt32(SD.SessionCart) != null)
                 {
                     return View(HttpContext.Session.GetInt32(SD.SessionCart));
-                } else
+                } 
+                else
                 {
                     count = _unitOfWork.ShoppingCart.getAll(x => x.ApplicationUserId == claim.Value).ToList().Count;
                     HttpContext.Session.SetInt32(SD.SessionCart, count);
                     return View(count);
                 }
-            } else
+            } 
+            else
             {
                 HttpContext.Session.Clear();
                 //user has not log in

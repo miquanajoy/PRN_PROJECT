@@ -56,7 +56,9 @@
                         Order Pickup Date Time
                     </div>
                     <div class="col-md-9 col-12">
-                        <input value="@Model.OrderDetailsVM.OrderHeader.PickUpTime.ToShortDateString() @Model.OrderDetailsVM.OrderHeader.PickUpDate.ToShortTimeString()" disabled class="form-control" />
+                        <input value="@Model.OrderDetailsVM.OrderHeader.PickUpTime.ToShortDateString()
+                            @Model.OrderDetailsVM.OrderHeader.PickUpDate.ToShortTimeString()" 
+                            disabled class="form-control" />
                     </div>
                 </div>
                 <div class="form-group row py-1">
@@ -89,7 +91,7 @@
                     }
                     <li class="list-group-item d-flex justify-content-between bg-light">
                         <span class="text-info">Total (USD)</span>
-                        <strong class="text-info">@Model.OrderDetailsVM.OrderHeader.OrderTotal</strong>
+                        <strong class="text-info">$@Model.OrderDetailsVM.OrderHeader.OrderTotal</strong>
                     </li>
                 </ul>
                                 

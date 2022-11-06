@@ -50,14 +50,13 @@ namespace PRN_Project.Pages.Customer.Home
                     _unitOfWork.ShoppingCart.add(ShoppingCart);
                     _unitOfWork.save();
                     HttpContext.Session.SetInt32(SD.SessionCart, 
-                        _unitOfWork.ShoppingCart.getAll(x => x.ApplicationUserId == ShoppingCart.ApplicationUserId).ToList().Count);
+                        _unitOfWork.ShoppingCart.getAll(x => x.ApplicationUserId 
+                        == ShoppingCart.ApplicationUserId).ToList().Count);
                 }
                 else
                 {
                     _unitOfWork.ShoppingCart.incrementCount(shoppingCartFromDb, ShoppingCart.Count);
                 }
-
-               
                 return RedirectToPage("Index");
             }
             return Page();            

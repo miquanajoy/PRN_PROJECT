@@ -62,7 +62,6 @@ namespace PRN_Project.Pages.Customer.Cart
                 _unitOfWork.ShoppingCart.decrementCount(cart, 1);
 
             }
-
             return RedirectToPage("/Customer/Cart/Index");
         }
 
@@ -70,7 +69,8 @@ namespace PRN_Project.Pages.Customer.Cart
         {
             var cart = _unitOfWork.ShoppingCart.getFirstOrDefault(u => u.Id == cartId);
 
-            var  count = _unitOfWork.ShoppingCart.getAll(x => x.ApplicationUserId == cart.ApplicationUserId).ToList().Count -1 ;
+            var  count = _unitOfWork.ShoppingCart.getAll(x => x.ApplicationUserId 
+            == cart.ApplicationUserId).ToList().Count-1 ;
 
             _unitOfWork.ShoppingCart.remove(cart);
             _unitOfWork.save();

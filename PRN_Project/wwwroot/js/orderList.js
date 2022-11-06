@@ -25,11 +25,11 @@ function loadlist(param) {
             "datatype": "json"
         },
         "columns": [
-            { "data": "id", "width": "25%" },
+            { "data": "id", "width": "10%" },
             { "data": "pickUpName", "width": "10%" },
             { "data": "applicationUser.email", "width": "10%" },
             { "data": "orderTotal", "width": "10%" },
-            { "data": "pickUpItem", "width": "10%" },
+            { "data": "pickUpTime", "width": "20%" },
             {
                 "data": "id",
                 "render": function (data) {
