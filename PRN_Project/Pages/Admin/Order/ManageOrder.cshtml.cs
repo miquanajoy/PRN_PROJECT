@@ -38,21 +38,21 @@ namespace PRN_Project.Pages.Admin.Order
             }
         }
 
-        public IActionResult onPostOrderInProcess(int orderId)
+        public IActionResult OnPostOrderInProcess(int orderId)
         {
             _unitOfWork.OrderHeader.UpdateStatus(orderId, SD.StatusInProcess);
             _unitOfWork.save();
             return RedirectToPage("ManageOrder");
         }
 
-        public IActionResult onPostOrderReady(int orderId)
+        public IActionResult OnPostOrderReady(int orderId)
         {
             _unitOfWork.OrderHeader.UpdateStatus(orderId, SD.StatusReady);
             _unitOfWork.save();
             return RedirectToPage("ManageOrder");
         }
 
-        public IActionResult onPostOrderCancel(int orderId)
+        public IActionResult OnPostOrderCancel(int orderId)
         {
             _unitOfWork.OrderHeader.UpdateStatus(orderId, SD.StatusCancelled);
             _unitOfWork.save();

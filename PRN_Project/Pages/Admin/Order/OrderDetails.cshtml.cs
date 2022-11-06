@@ -28,19 +28,19 @@ namespace PRN_Project.Pages.Admin.Order
             };
         }
 
-        public IActionResult onPostOrderCompleted(int orderId)
+        public IActionResult OnPostOrderCompleted(int orderId)
         {
             _unitOfWork.OrderHeader.UpdateStatus(orderId, SD.StatusCompleted);
             _unitOfWork.save();
             return RedirectToPage("OrderList");
         }
 
-        public IActionResult onPostOrderRefund(int orderId)
+        public IActionResult OnPostOrderRefund(int orderId)
         {
             OrderHeader orderHeader = _unitOfWork.OrderHeader.getFirstOrDefault(o => o.Id == orderId);
             var options = new RefundCreateOptions
             {
-                Reason = RefundReasons.RequestedByCustomer,
+                Reason  = RefundReasons.RequestedByCustomer,
                 PaymentIntent = orderHeader.PaymentIntentId
             };
 
@@ -52,7 +52,7 @@ namespace PRN_Project.Pages.Admin.Order
             return RedirectToPage("OrderList");
         }
 
-        public IActionResult onPostOrderCancel(int orderId)
+        public IActionResult OnPostOrderCancel(int orderId)
         {
             _unitOfWork.OrderHeader.UpdateStatus(orderId, SD.StatusCancelled);
             _unitOfWork.save();

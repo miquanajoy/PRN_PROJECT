@@ -56,8 +56,8 @@
                         Order Pickup Date Time
                     </div>
                     <div class="col-md-9 col-12">
-                        <input value="@Model.OrderDetailsVM.OrderHeader.PickUpTime.ToShortDateString()
-                            @Model.OrderDetailsVM.OrderHeader.PickUpDate.ToShortTimeString()" 
+                        <input value="@Model.OrderDetailsVM.OrderHeader.PickUpDate.ToShortDateString()
+                            @Model.OrderDetailsVM.OrderHeader.PickUpTime.ToShortTimeString()" 
                             disabled class="form-control" />
                     </div>
                 </div>
@@ -116,14 +116,14 @@
                         <div class="col-6">
                             <button type="submit" class="btn btn-warning form-control"
                                 asp-page-handler="OrderCancel" asp-route-orderId="@Model.OrderDetailsVM.OrderHeader.Id">
-                                <i class="bi bi-x-square">Cancel Order</i>
+                                <i class="bi bi-x-square"></i>Cancel Order
                             </button>
                         </div>
 
                         <div class="col-6">
                             <button type="submit" class="btn btn-warning form-control"
                                 asp-page-handler="OrderRefund" asp-route-orderId="@Model.OrderDetailsVM.OrderHeader.Id">
-                                <i class="bi bi-currency-dollar">Refund Order</i>
+                                <i class="bi bi-currency-dollar"></i>Refund Order
                             </button>
                         </div>
                     }
