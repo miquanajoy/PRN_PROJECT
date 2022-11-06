@@ -120,7 +120,6 @@ namespace PRN_Project.Pages.Customer.Cart
                 
                 var service = new SessionService();
                 Session session = service.Create(options);
-
                 Response.Headers.Add("Location", session.Url);
 
                 OrderHeader.SessionId = session.Id;

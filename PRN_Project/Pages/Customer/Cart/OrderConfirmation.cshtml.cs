@@ -27,7 +27,6 @@ namespace PRN_Project.Pages.Customer.Cart
                     orderHeader.Status = SD.StatusSubimitted;
                     _unitOfWork.save();
                 }
-               
             }
             List<ShoppingCart> shoppingCarts =
                    _unitOfWork.ShoppingCart.getAll(u => u.ApplicationUserId == orderHeader.UserId).ToList();

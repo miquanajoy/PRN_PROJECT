@@ -36,7 +36,6 @@ namespace PRN_Project.Pages.Admin.Order
                 };
                 OrderDetailsVM.Add(individual);
             }
-            
         }
 
         public IActionResult onPostOrderInProcess(int orderId)

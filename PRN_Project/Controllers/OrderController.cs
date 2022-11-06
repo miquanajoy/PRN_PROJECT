@@ -25,7 +25,8 @@ namespace PRN_Project.Controllers
             if(status == "cancelled")
             {
                 OrderHeaderList = OrderHeaderList.Where(x => x.Status == SD.StatusCancelled || x.Status == SD.StatusRejected);
-            } else
+            } 
+            else
             {
                 if (status == "completed")
                 {
@@ -36,7 +37,8 @@ namespace PRN_Project.Controllers
                     if (status == "ready")
                     {
                         OrderHeaderList = OrderHeaderList.Where(x => x.Status == SD.StatusReady);
-                    } else
+                    } 
+                    else
                     {
                         OrderHeaderList = OrderHeaderList.Where(x => x.Status == SD.StatusSubimitted ||  
                         x.Status == SD.StatusInProcess);

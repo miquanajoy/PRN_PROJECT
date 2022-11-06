@@ -33,25 +33,25 @@
 
         <div class="p-2">
             <ul class="list-group list-group-horizontal-sm">
-                <a style="text-decoration: none;" asp-route="OrderList" asp-route-status="cancelled">
+                <a style="text-decoration: none;" asp-page="OrderList" asp-route-status="cancelled">
                     <li class="list-group-item" @cancelled>
                         Cancelled
                     </li>
                 </a>
 
-                <a style="text-decoration: none;" asp-route="OrderList" asp-route-status="completed">
+                <a style="text-decoration: none;" asp-page="OrderList" asp-route-status="completed">
                     <li class="list-group-item" @completed>
                         Completed
                     </li>
                 </a>
 
-                <a style="text-decoration: none;" asp-route="OrderList" asp-route-status="inProcess">
+                <a style="text-decoration: none;" asp-page="OrderList" asp-route-status="inProcess">
                 <li class="list-group-item" @inProcess>
                     In Process
                 </li>
                 </a>
 
-                <a style="text-decoration: none;" asp-route="OrderList" asp-route-status="ready">
+                <a style="text-decoration: none;" asp-page="OrderList" asp-route-status="ready">
                 <li class="list-group-item" @ready>
                     Ready for Pickup
                 </li>

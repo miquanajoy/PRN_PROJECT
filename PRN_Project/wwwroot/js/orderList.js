@@ -11,7 +11,7 @@ $(document).ready(function () {
             if (url.includes("ready")) {
                 loadlist("ready");
             } else {
-                loadlist("inProgress");
+                loadlist("inProcess");
             }
         }
     }
