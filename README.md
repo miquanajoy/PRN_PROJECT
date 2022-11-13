@@ -1,6 +1,6 @@
 # PRN_PROJECT
 
-**JS API USE RESOURCE**
+**API USE RESOURCE**
 
 1. Bootswatch to make UI better - https://bootswatch.com/5/journal/bootstrap.css
 2. Richtext editor - https://www.tiny.cloud/
