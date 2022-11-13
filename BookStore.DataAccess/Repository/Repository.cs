@@ -21,7 +21,8 @@ namespace BookStore.DataAccess.Repository
         {
             dbContext = db;
             //Booktype, category
-            //dbContext.MenuItem.Include(u => u.BookType).Include(u => u.Category);
+            //dbContext.ShoppingCart.Include(u => u.MenuItem).ThenInclude(u => u.Category);
+            //dbContext.MenuItem.OrderBy(u => u.Name);
             this.dbSet = db.Set<T>();
         }
         public void add(T entity)
@@ -29,10 +30,17 @@ namespace BookStore.DataAccess.Repository
             dbSet.Add(entity);
         }
 
-        public IEnumerable<T> getAll(string? includeProperties = null)
+        public IEnumerable<T> getAll(Expression<Func<T, bool>>? filter = null,
+            Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
+            string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
-            if(includeProperties != null)
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            if (includeProperties != null)
             {
                 foreach(var includeProperty in includeProperties.Split(
                     new char[] { ','}, StringSplitOptions.RemoveEmptyEntries))
@@ -40,15 +48,28 @@ namespace BookStore.DataAccess.Repository
                     query = query.Include(includeProperty);
                 }
             }
+            if(orderBy != null)
+            {
+                return orderBy(query).ToList();
+            }
             return query.ToList();
         }
 
-        public T getFirstOrDefault(Expression<Func<T, bool>>? filter = null)
+        public T getFirstOrDefault(Expression<Func<T, bool>>? filter = null, string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
             if (filter != null)
             {
                 query = query.Where(filter);
+            }
+
+            if (includeProperties != null)
+            {
+                foreach (var includeProperty in includeProperties.Split(
+                    new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(includeProperty);
+                }
             }
             return query.FirstOrDefault();
         }
